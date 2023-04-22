@@ -7,6 +7,7 @@ const questions = [
     type: "input",
     name: "text",
     message: "TEXT: Enter up to (3) Characters:",
+    //validate:
   },
   {
     type: "input",
