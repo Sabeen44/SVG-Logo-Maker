@@ -13,17 +13,19 @@ inquirer
     {
       type: "input",
       name: "color",
-      message: "TEXT COLOR: Enter a color keyword (OR a hexadecimal number):",
+      message:
+        "TEXT COLOR: Enter a color keyword (OR a hexadecimal number) for text color:",
     },
     {
       type: "input",
-      name: "shape",
-      message: "SHAPE COLOR: Enter a color keyword (OR a hexadecimal number):",
+      name: "fill",
+      message:
+        "SHAPE COLOR: Enter a color keyword (OR a hexadecimal number)for shape color:",
     },
     {
       type: "list",
-      name: "pixel-image",
-      message: "Choose which Pixel Image you would like?",
+      name: "image",
+      message: "Choose an image:",
       choices: ["Circle", "Square", "Triangle"],
     },
   ])
@@ -31,22 +33,34 @@ inquirer
   .then((answers) => {
     console.log(answers);
 
-    fs.writeFile(
-      `logo.svg`,
-      `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-       <circle cx="150" cy="100" r="80" fill="green" /> 
-       <polygon height="100%" width="100%" points="0,200 300,200 150,0" fill="PINK"/></svg>`,
+    if (answers.image === "Circle") {
+      shape = new Circle();
+    } else if (answers.image === "Triangle") {
+      shape = new Triangle();
+    } else if (answers.image === "Square") {
+      shape = new Square();
+    }
 
-      function (err) {
-        if (err) {
-          return console.log(error);
-        }
-        console.log("yayy");
+    shape.setColor(answers.fill);
+    Rendershape = shape.render();
+    console.log(Rendershape);
+
+    shapeString = `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  ${Rendershape}
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${answers.color}">
+     ${answers.text}</text>
+     </svg>`;
+    console.log(shapeString);
+
+    fs.writeFile(`logo.svg`, shapeString, function (err) {
+      if (err) {
+        return console.log(error);
       }
-    );
+      console.log("logo has been rendered");
+    });
   });
 
 // const triangle = new Triangle();
 // triangle.setColor("pink");
-// str = triangle.render();
+// if answers.image===Triangle  triangle.render();
 // console.log(str);
