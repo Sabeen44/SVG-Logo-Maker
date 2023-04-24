@@ -6,7 +6,7 @@ This is a Node.js command-line application that takes in user input to generate 
 
 ## Functionality
 
-The code makes use of classes and inheritance. A parent Shape class holds a common functionality shared by the individual shapes (triangle,square cirlce).
+The code makes use of javascript class and inheritance. A parent Shape class holds a common functionality shared by the individual shapes (triangle,square cirlce) classes.
 That allows each shape class to inherit the code from the parent class.
 To test if correct shapes are going to be rendered, each class of shape is tested using Jest.
 
@@ -24,4 +24,10 @@ Next, use the terminal to run the command npm i to install the dependencies, inq
 
 ## Demo
 
+https://drive.google.com/file/d/1-1Eey69kioxHIQWw5FYfBXiIONml2lOC/view
+
 ## Questions
+
+For any questions, feel free to contact me:
+
+www.linkedin.com/in/sabeen-chaudhry

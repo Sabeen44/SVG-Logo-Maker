@@ -50,7 +50,6 @@ inquirer
     <text x="150" y="125" font-size="60" text-anchor="middle" fill="${answers.color}">
      ${answers.text}</text>
      </svg>`;
-    console.log(shapeString);
 
     fs.writeFile(`logo.svg`, shapeString, function (err) {
       if (err) {
