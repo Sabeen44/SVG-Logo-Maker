@@ -56,11 +56,6 @@ inquirer
       if (err) {
         return console.log(error);
       }
-      console.log("logo has been rendered");
+      console.log("Generated logo.svg");
     });
   });
-
-// const triangle = new Triangle();
-// triangle.setColor("pink");
-// if answers.image===Triangle  triangle.render();
-// console.log(str);
